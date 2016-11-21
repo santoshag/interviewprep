@@ -4,17 +4,22 @@ class Solution:
     def removeDuplicates(self, A):
         base = 0
         length = len(A)
-        newLenght = len(A)
+        newLength = len(A)
         for nextNum in A[1:]:
-            # print A[base], nextNum, A
+            print A[base], nextNum, A
             if A[base] == nextNum:
-                newLenght -= 1
-                continue
+                newLength -= 1
             else:
                 base += 1
                 A[base] = nextNum
-        # print A, newLenght
-        return newLenght
+        for i in range(newLength, length):
+            # print i
+            A[i] = 0
+        # print A, newLength
+        return newLength
 
 sol = Solution()
-print sol.removeDuplicates([5000,5000,5000])
+A = [2,3,5,5,13,13]
+print 'New length is', sol.removeDuplicates(A)
+print 'Array: ', A
+

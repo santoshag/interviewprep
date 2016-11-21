@@ -5,6 +5,7 @@ class Solution:
         result = []
 
         ## Actual code to populate result
+        #t-top l-left b-bottom r-right pointers, dir-direction
         t = 0
         l = 0
         b = len(A) -1
@@ -37,6 +38,6 @@ class Solution:
                 dir = 0
         return result
 
-A = [[1,2,3],[4,5,6]]
+A = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
 sol = Solution()
 print sol.spiralOrder(A)

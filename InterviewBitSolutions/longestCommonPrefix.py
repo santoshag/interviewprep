@@ -10,13 +10,11 @@ class Solution:
                 minLen = len(str)
 
         for i in range(minLen):
-            str = A[0]
-            for j, nextStr in enumerate(A[1:]):
-                # print str[i], nextStr[i]
-                if nextStr[i] != str[i]:
-                    return str[0:i]
-                str = nextStr
-        return str[:i+1]
+            currentChar = A[0][i]
+            for currentString in A[1:]:
+                if currentString[i] != currentChar:
+                    return currentString[:i]
+        return A[0][:i+1]
 
 sol = Solution()
 A = [ "abcd", "abcde"]
