@@ -1,12 +1,29 @@
 def multiply(A, B):
     result = []
+    resultPositive, A, B = isResultPositive(A, B)
     A = removeZerosAtStart(A)
     B = removeZerosAtStart(B)
-    print A, B
     for i in range(len(B) - 1, -1, -1):
         partialProd = multiplyAwithBDigit(A, B[i], result)
         addPartialProdToResult(partialProd, result, len(B) - 1 - i,)
-    return removeZerosAtStart(result)
+    result = removeZerosAtStart(result)
+    if not resultPositive:
+        result.insert(0, '-')
+    return result
+
+def isResultPositive(A,B):
+    aNegetive = False
+    bNegetive = False
+    returnVal = True
+    if A[0] == '-':
+        A = A[1:]
+        aNegetive = True
+    if B[0] == '-':
+        B = B[1:]
+        bNegetive = True
+    if aNegetive ^ bNegetive:
+        returnVal = False
+    return  (returnVal, A, B)
 
 
 def multiplyAwithBDigit(A, bDigit, result):
@@ -54,6 +71,6 @@ def removeZerosAtStart(result):
 
 
 A = [0, 0, 1, 2, 3]
-B = [0, 9, 0]
+B = ['-', 0, 9, 0]
 result = multiply(A, B)
 print '* Result:', result
