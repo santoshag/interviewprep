@@ -5,7 +5,7 @@ def multiply(A, B):
     B = removeZerosAtStart(B)
     for i in range(len(B) - 1, -1, -1):
         partialProd = multiplyAwithBDigit(A, B[i], result)
-        addPartialProdToResult(partialProd, result, len(B) - 1 - i,)
+        addPartialProdToResult(partialProd, result, len(B) - 1 - i)
     if not resultPositive:
         result.insert(0, '-')
     return result
