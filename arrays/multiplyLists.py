@@ -11,7 +11,8 @@ def multiply(A, B):
         result.insert(0, '-')
     return result
 
-def isResultPositive(A,B):
+
+def isResultPositive(A, B):
     aNegetive = False
     bNegetive = False
     returnVal = True
@@ -23,7 +24,7 @@ def isResultPositive(A,B):
         bNegetive = True
     if aNegetive ^ bNegetive:
         returnVal = False
-    return  (returnVal, A, B)
+    return (returnVal, A, B)
 
 
 def multiplyAwithBDigit(A, bDigit, result):
