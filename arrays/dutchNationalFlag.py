@@ -13,8 +13,8 @@ def partitionDNF(A, pivot):
             A[larger], A[equal] = A[equal], A[larger]
             larger -= 1
 
-A = [1,2,3,4,1,2,3,4]
-pivot = 2
+A = [2,2,2,2,2,2,2,2,2]
+pivot = 1
 print 'Before partition:', A, 'Pivot:', pivot
 partitionDNF(A, pivot)
 print 'After partition:', A
