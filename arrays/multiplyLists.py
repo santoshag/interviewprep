@@ -6,7 +6,6 @@ def multiply(A, B):
     for i in range(len(B) - 1, -1, -1):
         partialProd = multiplyAwithBDigit(A, B[i], result)
         addPartialProdToResult(partialProd, result, len(B) - 1 - i,)
-    result = removeZerosAtStart(result)
     if not resultPositive:
         result.insert(0, '-')
     return result
