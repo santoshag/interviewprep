@@ -1,4 +1,4 @@
-import sys
+dimport sys
 class Solution:
     # @param A : integer
     # @return a list of list of integers

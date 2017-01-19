@@ -1,14 +1,23 @@
+class Solution:
+    # @param A : string
+    # @param B : string
+    # @return a strings
+    def multiply(self, A, B):
+        return multiply(list(A), list(B))
+
 def multiply(A, B):
     result = []
-    resultPositive, A, B = isResultPositive(A, B)
+    # resultPositive, A, B = isResultPositive(A, B)
     A = removeZerosAtStart(A)
     B = removeZerosAtStart(B)
+    if len(A) == 0 or len(B) == 0:
+        return '0'
     for i in range(len(B) - 1, -1, -1):
         partialProd = multiplyAwithBDigit(A, B[i], result)
         addPartialProdToResult(partialProd, result, len(B) - 1 - i)
-    if not resultPositive:
-        result.insert(0, '-')
-    return result
+    result = removeZerosAtStart(result)
+    result = [str(i) for i in result]
+    return ''.join(result)
 
 
 def isResultPositive(A, B):
@@ -25,12 +34,13 @@ def isResultPositive(A, B):
         returnVal = False
     return (returnVal, A, B)
 
-
 def multiplyAwithBDigit(A, bDigit, result):
     carry = 0
     partialProd = []
+
+    bDigit = int(bDigit)
     for i in range(len(A) - 1, -1, -1):
-        aDigit = A[i]
+        aDigit = int(A[i])
         prod = (aDigit * bDigit) + carry
         carry = prod / 10
         val = prod % 10
@@ -64,7 +74,7 @@ def addPartialProdToResult(partialProd, result, startPos):
 def removeZerosAtStart(result):
     zerosCount = 0
     for n in result:
-        if n > 0:
+        if int(n) > 0:
             break
         zerosCount += 1
     return result[zerosCount:]
@@ -72,5 +82,7 @@ def removeZerosAtStart(result):
 
 A = [0, 0, 1, 2, 3]
 B = ['-', 0, 9, 0]
-result = multiply(A, B)
+sol = Solution()
+
+result = sol.multiply('0129', '0')
 print '* Result:', result
